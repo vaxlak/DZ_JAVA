@@ -30,8 +30,23 @@ public class Main {
         else if (y % 4 == 0) x=366;
         else x=365;
         System.out.println("Количество дней в году: " + x);
-       
-    }
+
+        // Второй вариант решения. Мне кажется, вероятность правильности у него выше
+        Scanner scan2 = new Scanner(System.in);
+        int x2;
+        int y2 = scan2.nextInt();
+        x2=visokos(y2);
+        System.out.println("Количество дней в году: " + x2);
+
+     }
+     static int visokos (int y2){
+        if(y2 % 400 == 0) return 366;
+        if(y2 % 100 == 0) return 365;
+        if(y2 % 4 == 0) return 366;
+        return 365;
+     }
+
+
 
 }
 
