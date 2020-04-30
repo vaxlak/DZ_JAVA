@@ -10,7 +10,7 @@ public class Main {
 class Cat {
     private String name = "безымянный кот";
     public void setName(String name) {
-        this.name="Кошка-обдалбошка";
+        this.name=name;
     }
 
     public String getName() {
