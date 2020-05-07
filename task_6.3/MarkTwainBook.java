@@ -5,11 +5,17 @@ public class MarkTwainBook extends Main.Book {
         super("Mark Twain");
         title = author;
     }
-    @Override
+    /*@Override
     public String getBook() {
 
         return author;
+    }*/
+    @Override
+    public MarkTwainBook getBook() {
+
+        return this;
     }
+
     @Override
     public String getTitle() {
         return title;
