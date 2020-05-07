@@ -25,7 +25,7 @@ abstract static class Book {
         this.author = author;
     }
 
-    public abstract String getBook();
+    public abstract Book getBook();
 
     public abstract String getTitle();
 
