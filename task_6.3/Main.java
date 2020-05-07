@@ -6,92 +6,38 @@
 5. В классе Book реализуйте тело метода getOutputByBookType так, чтобы он возвращал:
 5.1. agathaChristieOutput для книг Агаты Кристи;
 5.2. markTwainOutput для книг Марка Твена.*/
-import java.util.List;
-import java.util.LinkedList;
 
+import java.util.LinkedList;
+import java.util.List;
 
 public class Main {
-    private List<Book> books;
-
-    public static void main(String[] args) {
+public static void main(String[] args) {
         List<Book> books = new LinkedList<Book>();
-        MarkTwainBook b1 = new MarkTwainBook("марк твен", "том соер");
-        System.out.println(b1.getTitle() + " " + b1.getBook());
-
-
-        books.add(new MarkTwainBook("mark","Tom Sawyer"));
-        books.add(new AgathaChristieBook("Агата","Hercule Poirot"));
+        books.add(new MarkTwainBook("Tom Sawyer"));
+        books.add(new AgathaChristieBook("Hercule Poirot"));
         System.out.println(books);
-    }
 }
 
-     class MarkTwainBook extends Book {
-        String MarkTwainBookTitle;
+abstract static class Book {
+    public String author;
 
-        public MarkTwainBook(String author, String MarkTwainBookTitle) {
-            super(author);
-            this.MarkTwainBookTitle = MarkTwainBookTitle;
-        }
-
-        @Override
-        public String getBook() {
-            return author;
-
-        }
-
-        @Override
-        public String getTitle() {
-            return MarkTwainBookTitle;
-        }
-
+    public Book(String author) {
+        this.author = author;
     }
 
-    class AgathaChristieBook extends Book{
-    String AgathaChristieBookTitle;
+    public abstract String getBook();
 
-        public AgathaChristieBook(String author, String agathaChristieBookTitle) {
-            super(author);
-            AgathaChristieBookTitle = agathaChristieBookTitle;
-        }
-        @Override
-        public String getBook() {
-            return author;
+    public abstract String getTitle();
 
-        }
-
-        @Override
-        public String getTitle() {
-            return AgathaChristieBookTitle;
-        }
-    }
-
-    abstract class Book {
-        String author;
-
-        public Book(String author) {
-            this.author = author;
-        }
-
-        public abstract String getBook();
-
-        public abstract String getTitle();
-
-
-        // Не видит getTitle. Не понимаю почему...
-        // А если играться с пабликами и статиками для классов - тогда вообще ничего не работает...
-        
-        private String getOutputByBookType() {
-        String agathaChristieOutput = author + ": " + getBook().getTitle() + " is a detective";
-        String markTwainOutput = getBook().getTitle() + " was written by " + author;
-
-        String output = "output";
-        //Add your code here
-
-        return output;
+    private String getOutputByBookType() {
+        String agathaChristieOutput = author + ": " + getTitle() + " is a detective";
+        String markTwainOutput = getTitle() + " was written by " + author;
+        if(author.equals("Mark Twain")) return markTwainOutput;
+        else return agathaChristieOutput;
     }
 
     public String toString() {
         return getOutputByBookType();
     }
-    }
-
+}
+}
