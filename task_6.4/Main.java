@@ -21,9 +21,11 @@ public class Main {
             this.name = name;
         }
 
-        public Object containsBones() {
-            return "Yes";
+        public Object containsBones(){
+            return "True";
+
         }
+
 
         public String toString() {
             return containsBones().equals("Yes") ? name + " содержит кости" : name + " не содержит кости";
@@ -38,8 +40,10 @@ public class Main {
             this.isArtificial = isArtificial;
         }
 
-        public Object containsBones() {
-            return super.containsBones().equals("Yes") && !isArtificial;
+        public Object containsBones()
+        {
+            if(super.containsBones().equals("Yes") && !isArtificial) return "Yes";
+            else return "No";
         }
     }
 
