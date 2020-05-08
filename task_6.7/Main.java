@@ -9,9 +9,9 @@ public class Main {
             String s = null;
             String m = s.toLowerCase();
         }
-        catch(Exception e){
+        catch(NullPointerException e){
             e.printStackTrace();
         }
-       
+
     }
 }
