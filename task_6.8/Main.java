@@ -10,7 +10,7 @@ public class Main {
             int[] m = new int[2];
             m[8] = 5;
         }
-        catch(Exception e) {
+        catch(ArrayIndexOutOfBoundsException e) {
             e.printStackTrace();
         }
         
